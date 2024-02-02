@@ -1,0 +1,28 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  height: 100vh;
+  
+}
+
+.calendar-container {
+  height: calc(100vh - 40px);
+  
+  overflow-y: auto;
+  box-shadow: 5px 5px 0px 0px rgba(109, 40, 217);
+  background-color: #eaf6ff;
+  flex: 1;
+      padding: 20px;
+      margin-left: 225px; 
+      overflow-y: auto; 
+}
+
+@media screen and (max-width: 576px) {
+}
+
+@media screen and (max-width: 860px) {
+  .calendar-container {
+    margin-left: 0px; 
+  }
+}
