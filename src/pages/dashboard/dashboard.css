@@ -1,0 +1,116 @@
+.dashboard-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .dashboard {
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    
+    .dashboard-header {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .dashboard h1 {
+      font-size: 24px;
+    }
+    
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+    
+    .stat-card {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      flex: 1;
+      margin-right: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .stat-card:last-child {
+      margin-right: 0;
+    }
+    
+    .stat-card h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .stat-card p {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .recent-activity {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .recent-activity h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .recent-activity ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .recent-activity li {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 20px;
+    }
+    
+    @media screen and (max-width: 600px) {
+      
+    
+      .stats {
+        flex-direction: row;
+        gap: 5px;
+      }
+    
+      .stat-card {
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    
+      .dashboard-header {
+        font-size: 15px;
+      }
+    
+      .stats,
+      .stat-card,
+      .event-item,
+      .recent-activity {
+        font-size: 5px; 
+      }
+    
+      .event-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 10px;
+      }
+    
+      .dashboard {
+        padding: 5px;
+        background-color: #f4f4f4;
+      }
+    }
+
+    @media screen and (max-width: 600px) {}

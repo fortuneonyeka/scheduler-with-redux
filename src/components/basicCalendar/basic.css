@@ -1,0 +1,137 @@
+.content {
+      flex: 1;
+      padding: 20px;
+      margin-left: 225px;
+      overflow-y: auto;
+    }
+    
+    .rbc-header {
+      background: greenyellow;
+      padding-bottom: 18px;
+      font-weight: bold;
+    }
+    
+    .rbc-event {
+      font-size: 20px;
+      padding: 8px;
+      background: blueviolet !important;
+      width: 100% !important;
+    }
+    
+    .rbc-event-label {
+      display: none !important;
+    }
+    
+    @media screen and (max-width: 576px) {
+      .rbc-row {
+        display: none;
+      }
+    
+      /* .rbc-header {
+                padding-top: 70px;
+                background: white;
+                color: black;
+                font-size: 50px;
+               
+          } */
+      .rbc-time-view {
+        width: 100vw !important;
+      }
+    
+      .rbc-row-bg {
+        display: none;
+      }
+      .rbc-day-bg {
+        display: none;
+      }
+    
+      .rbc-button-link {
+        font-size: 8px;
+        padding: 20px;
+      }
+    
+      .rbc-time-column {
+        font-size: 8px;
+      }
+    
+      .rbc-time-slot {
+        font-size: 8px;
+      }
+    
+      .rbc-today {
+        font-size: 5px;
+      }
+      .rbc-calendar * {
+        font-size: 8px;
+      }
+    
+      .rbc-event-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 20px;
+        padding-left: 5px;
+        width: 300px;
+      }
+    
+      .rbc-timeslot-group {
+        width: 60px;
+        align-items: center;
+      }
+      .rbc-event {
+        font-size: 10px;
+        padding: 2px;
+        background: blueviolet !important;
+        width: 100% !important;
+      }
+    
+      .content {
+        padding-top: 100px;
+        margin-left: 2px;
+        overflow-y: auto;
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      .sidenav {
+        width: 200px; /* Adjust width for tablets */
+      }
+    
+      .rbc-event {
+      }
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .title {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .event-item {
+      border: 1px solid #ddd;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+    
+    .event-item h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    
+    .event-item p {
+      font-size: 14px;
+      margin: 0;
+    }
+    
