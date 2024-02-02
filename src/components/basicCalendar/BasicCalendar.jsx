@@ -34,25 +34,37 @@ const BasicCalendar = () => {
     setShowModal(true);
   };
 
-  const stylePassedEvent = (start) => {
-    let style = {};
-
-    if (moment(start).isBefore(today, "day")) {
-      style = {
-        textDecoration: "line-through",
+  const stylePassedEvent = (event) => {
+    const today = moment().startOf("day");
+    const eventStart = moment(event.start);
+  
+    if (eventStart.isBefore(today, "day")) {
+      return {
+        style: {
+          textDecoration: "line-through",
+        },
       };
     }
-
-    return {
-      style: style,
-    };
+  
+    return {};
   };
+
+  const filterEvents = (events) => {
+    const filteredEvents = events.filter((event) => {
+      const eventStart = moment(event.start);
+      const daysDifference = moment().diff(eventStart, "days");
+      return daysDifference <= 30;
+    });
+    return filteredEvents;
+  };
+
+  const filteredEvents = filterEvents(events);
 
   return (
     <div style={{ height: "800px" }}>
       <Calendar
         localizer={localizer}
-        events={events}
+        events={filteredEvents}
         startAccessor="start"
         endAccessor="end"
         style={{ margin: "50px" }}
