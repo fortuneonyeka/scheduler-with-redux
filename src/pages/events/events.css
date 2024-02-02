@@ -1,0 +1,25 @@
+.event-container {
+      margin: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    
+    .event-item {
+      padding: 20px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+    }
+    
+    @media screen and (max-width: 576px) {
+      .event-item {
+        padding: 12px; 
+      }
+    }
+    
+    @media screen and (min-width: 577px) and (max-width: 768px) {
+      .event-item {
+        padding: 15px; 
+      }
+    }
+    
