@@ -32,6 +32,10 @@ Deleting Events: Events can be deleted by clicking on the delete button within t
 - Visual Studio, Git, & GitHub;
 
 
+## Live Demo (if available)
+
+[Live Demo Link](https://scheduler-with-redux.vercel.app/) 
+
 ## Getting Started
 
 To run this project, you only need a computer with a browser (like Google Chrome, Mozilla Firefox, Microsoft Edge, Apple Safari, etc.) installed, and follow these steps:
