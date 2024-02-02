@@ -20,6 +20,8 @@ const Modal = ({ selectEvent, selectedDate, setShowModal }) => {
       setEventTitle("");
     }
   }, [selectEvent]);
+  
+
 
   const handleSaveEvent = () => {
     if (eventTitle.trim() && selectedDate) {
@@ -33,6 +35,7 @@ const Modal = ({ selectEvent, selectedDate, setShowModal }) => {
 
       dispatch(addEvents(newEvent));
       setShowModal(false);
+      setEventTitle("");
     } else {
       setError("Event title cannot be empty");
     }
@@ -40,16 +43,14 @@ const Modal = ({ selectEvent, selectedDate, setShowModal }) => {
 
   const handleAddChanges = () => {
     if (selectEvent && eventTitle) {
-      selectEvent = { ...selectEvent, title: eventTitle };
-      dispatch(updatedEvents(selectEvent));
-
+      const updatedEvent = { ...selectEvent, title: eventTitle };
+      dispatch(updatedEvents(updatedEvent));
       setShowModal(false);
-      console.log(123);
+      setEventTitle("");
     } else {
       setError("Event title cannot be empty");
     }
   };
-
   const handleDeleteEvent = () => {
     if (selectEvent) {
       dispatch(deleteEvents(selectEvent.id));
@@ -73,8 +74,8 @@ const Modal = ({ selectEvent, selectedDate, setShowModal }) => {
             <input
               type="text"
               id="eventTitle"
+              placeholder="Enter your event"
               value={eventTitle}
-              name="eventTitle"
               onChange={handleTitleChange}
               required
             />
