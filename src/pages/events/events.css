@@ -15,11 +15,19 @@
       .event-item {
         padding: 12px; 
       }
+
+      .event-container {
+        margin-top: 100px;
+      }
     }
     
-    @media screen and (min-width: 577px) and (max-width: 768px) {
+    @media screen and (min-width: 577px) and (max-width: 992px) {
       .event-item {
         padding: 15px; 
+      }
+
+      .event-container {
+        margin-top: 100px;
       }
     }
     
