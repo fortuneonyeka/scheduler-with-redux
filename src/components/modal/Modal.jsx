@@ -45,8 +45,8 @@ const Modal = ({ selectEvent, selectedDate, setShowModal }) => {
     if (selectEvent && eventTitle) {
       const updatedEvent = { ...selectEvent, title: eventTitle };
       dispatch(updatedEvents(updatedEvent));
-      setShowModal(false);
       setEventTitle("");
+      setShowModal(false);
     } else {
       setError("Event title cannot be empty");
     }

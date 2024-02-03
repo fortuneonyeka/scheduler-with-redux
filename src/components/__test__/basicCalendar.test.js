@@ -1,11 +1,13 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { Provider } from "react-redux";
-import store from "../../redux/store"; // Assuming this is your Redux store configuration
+import store from "../../redux/store"; 
 import Events from "../../pages/events/Events";
 import Modal from "../../components/modal/Modal";
 import BasicCalendar from "../../components/basicCalendar/BasicCalendar";
-import SideNav from "../navigation/NavBar";
+import SideNav from "../navigations/NavBar";
+import NotFound from '../../components/NotFound';
+
 
 describe("Components Rendering", () => {
   it("renders Events component", () => {
@@ -24,6 +26,17 @@ describe("Components Rendering", () => {
       </Provider>
     );
     expect(screen.getByTestId("modal")).toBeInTheDocument();
+  });
+});
+
+describe('NotFound Component', () => {
+  it('renders correctly', () => {
+    render(<NotFound />);
+    const pageTitle = screen.getByText(/404 - Page Not Found/i);
+    const errorMessage = screen.getByText(/Oops! The page you are looking for does not exist./i);
+
+    expect(pageTitle).toBeInTheDocument();
+    expect(errorMessage).toBeInTheDocument();
   });
 });
 
@@ -103,3 +116,6 @@ describe("Events component", () => {
     });
   });
 });
+
+
+
