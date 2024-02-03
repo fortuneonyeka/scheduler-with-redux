@@ -9,6 +9,7 @@ import {
   RouterProvider,
   ScrollRestoration,
 } from "react-router-dom";
+import NotFound from "./components/NotFound";
 
 const Layout = () => {
   return (
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/events",
         element: <Events data-testid="events" />,
+      },
+      {
+        path: "*",
+        element: <NotFound data-testid="events" />,
       },
     ],
   },
