@@ -31,6 +31,11 @@ const BasicCalendar = () => {
   };
 
   const handleSelectEvent = (event) => {
+    if (moment(event.start).isBefore(today, "day")) {
+      alert("Editing past events is not allowed.");
+      return;
+    }
+
     setSelectEvent(event);
     setShowModal(true);
   };
@@ -60,6 +65,12 @@ const BasicCalendar = () => {
   };
 
   const filteredEvents = filterEvents(events);
+
+  useEffect(() => {
+    const updatedEvents = filterEvents(JSON.parse(localStorage.getItem("events")));
+    localStorage.setItem("events", JSON.stringify(updatedEvents));
+  }, []);
+
 
   return (
     <div style={{ height: "800px" }}>
