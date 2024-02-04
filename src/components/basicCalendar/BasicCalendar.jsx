@@ -24,6 +24,7 @@ const BasicCalendar = () => {
     if (moment(slotInfo.start).isSameOrAfter(today, "day")) {
       setShowModal(!showModal);
       setSelectedDate(slotInfo.start);
+      setSelectEvent("");
     } else {
       alert("You can only add events for today and future dates.");
     }
@@ -37,7 +38,7 @@ const BasicCalendar = () => {
   const stylePassedEvent = (event) => {
     const today = moment().startOf("day");
     const eventStart = moment(event.start);
-  
+
     if (eventStart.isBefore(today, "day")) {
       return {
         style: {
@@ -45,7 +46,7 @@ const BasicCalendar = () => {
         },
       };
     }
-  
+
     return {};
   };
 

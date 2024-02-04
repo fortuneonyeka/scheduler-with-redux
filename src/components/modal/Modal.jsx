@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./modal.css";
 import {
@@ -20,8 +20,6 @@ const Modal = ({ selectEvent, selectedDate, setShowModal }) => {
       setEventTitle("");
     }
   }, [selectEvent]);
-  
-
 
   const handleSaveEvent = () => {
     if (eventTitle.trim() && selectedDate) {
@@ -55,6 +53,7 @@ const Modal = ({ selectEvent, selectedDate, setShowModal }) => {
     if (selectEvent) {
       dispatch(deleteEvents(selectEvent.id));
       setShowModal(false);
+      setEventTitle("");
     }
   };
 
@@ -111,6 +110,7 @@ const Modal = ({ selectEvent, selectedDate, setShowModal }) => {
               onClick={() => {
                 setError("");
                 setShowModal(false);
+                setEventTitle("");
               }}
               className="cancel-btn"
             >
