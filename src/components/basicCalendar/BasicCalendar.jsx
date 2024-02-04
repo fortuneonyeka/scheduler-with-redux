@@ -24,12 +24,18 @@ const BasicCalendar = () => {
     if (moment(slotInfo.start).isSameOrAfter(today, "day")) {
       setShowModal(!showModal);
       setSelectedDate(slotInfo.start);
+      setSelectEvent("");
     } else {
       alert("You can only add events for today and future dates.");
     }
   };
 
   const handleSelectEvent = (event) => {
+    if (moment(event.start).isBefore(today, "day")) {
+      alert("Editing past events is not allowed.");
+      return;
+    }
+
     setSelectEvent(event);
     setShowModal(true);
   };
@@ -37,7 +43,7 @@ const BasicCalendar = () => {
   const stylePassedEvent = (event) => {
     const today = moment().startOf("day");
     const eventStart = moment(event.start);
-  
+
     if (eventStart.isBefore(today, "day")) {
       return {
         style: {
@@ -45,7 +51,7 @@ const BasicCalendar = () => {
         },
       };
     }
-  
+
     return {};
   };
 
@@ -59,6 +65,12 @@ const BasicCalendar = () => {
   };
 
   const filteredEvents = filterEvents(events);
+
+  useEffect(() => {
+    const updatedEvents = filterEvents(JSON.parse(localStorage.getItem("events")));
+    localStorage.setItem("events", JSON.stringify(updatedEvents));
+  }, []);
+
 
   return (
     <div style={{ height: "800px" }}>

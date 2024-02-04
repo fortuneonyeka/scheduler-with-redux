@@ -19,18 +19,31 @@ const Events = () => {
       hour: "numeric",
       minute: "numeric",
     };
-    return date.toLocaleDateString("en-US", options);
+
+    // Check if the date is valid
+    if (isNaN(date.getTime())) {
+      return "Invalid Date";
+    }
+
+    const endTime = new Date(date);
+    endTime.setHours(endTime.getHours() + 12);
+
+    return `From: ${date.toLocaleDateString("en-US", options)} - To: ${endTime.toLocaleTimeString("en-US", options)}`;
   };
 
   return (
     <div data-testid="event" className="event-container">
-      {storedEvents.map((event) => (
-        <div key={event.id} className="event-item">
-          <h3>{event.title}</h3>
-          <p>Start: {formatDate(event.start)}</p>
-          <p>End: {formatDate(event.end)}</p>
-        </div>
-      ))}
+      {storedEvents.length === 0 ? (
+        <h3>You have no scheduled events, Please add new events</h3>
+      ): (
+        storedEvents.map((event) => (
+          <div key={event.id} className="event-item">
+            <h3>{event.title}</h3>
+            <p>{formatDate(event.start)}</p>
+          </div>
+        ))
+      )}
+      
     </div>
   );
 };
