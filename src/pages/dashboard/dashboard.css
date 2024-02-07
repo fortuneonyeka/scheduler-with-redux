@@ -32,7 +32,7 @@
       padding: 20px;
       flex: 1;
       margin-right: 15px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
     }
     
     .stat-card:last-child {
@@ -53,7 +53,7 @@
       background-color: #fff;
       border-radius: 8px;
       padding: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
     }
     
     .recent-activity h2 {
@@ -75,6 +75,13 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       padding: 20px;
+      gap: 20px;
+      
+    }
+
+    .event-item {
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px !important;
+      border-radius: 10px;
     }
     
     @media screen and (max-width: 600px) {

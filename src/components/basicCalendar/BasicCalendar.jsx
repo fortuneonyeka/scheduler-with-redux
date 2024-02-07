@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState} from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
@@ -63,13 +63,19 @@ const BasicCalendar = () => {
     });
     return filteredEvents;
   };
-
+  
   const filteredEvents = filterEvents(events);
-
+  
   useEffect(() => {
-    const updatedEvents = filterEvents(JSON.parse(localStorage.getItem("events")));
-    localStorage.setItem("events", JSON.stringify(updatedEvents));
+    try {
+      const storedEvents = JSON.parse(localStorage.getItem("events")) || [];
+      const updatedEvents = filterEvents(storedEvents);
+      localStorage.setItem("events", JSON.stringify(updatedEvents));
+    } catch (error) {
+      console.error("Error processing events from localStorage:", error);
+    }
   }, []);
+  
 
 
   return (
