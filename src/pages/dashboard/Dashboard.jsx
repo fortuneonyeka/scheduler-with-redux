@@ -72,7 +72,7 @@ const Dashboard = () => {
         <h2 className="dashboard-header">Scheduled Events</h2>
         <div className="event-grid">
           {storedEvents.map((event, index) => (
-            <div key={index} className="event-item">
+            <div className="event-item" key={index} >
               <h3>{event.title}</h3>
               <p>{event.description}</p>
               <p>
@@ -87,7 +87,7 @@ const Dashboard = () => {
         <h2>Recent Activity</h2>
         <h2>You scheduled: {numberOfStoredEvents} events</h2>
         <p style={{textDecoration:"line-through"}}>Passed events: {numberOfPassedEvents}</p>
-        <p>Active events: {numberOfCurrentAndFutureEvents}</p>
+        <p style={{color: "green"}}>Active events: {numberOfCurrentAndFutureEvents}</p>
       </div>
     </div>
   );
